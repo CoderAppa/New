@@ -1,0 +1,16 @@
+@model IEnumerable<CachingDemo.Models.Product>
+
+<h2>Caching Demo</h2>
+<p><strong>@ViewBag.Message</strong></p>
+
+<table border="1" cellpadding="10">
+<tr><th>ID</th><th>Product Name</th><th>Price</th></tr>
+@foreach (var product in Model)
+{
+<tr>
+    <td>@product.Id</td>
+    <td>@product.Name</td>
+    <td>₹@product.Price</td>
+</tr>
+}
+</table>

@@ -1,0 +1,49 @@
+@model StudentRegistration.Models.Student
+
+<h2>Student Registration</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Gender)
+        @Html.RadioButtonFor(m => m.Gender, "Male") Male
+        @Html.RadioButtonFor(m => m.Gender, "Female") Female
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Course)
+        @Html.DropDownListFor(m => m.Course,
+            new SelectList(new[] { "BSc IT", "BCA", "MCA" }),
+            "Select Course")
+    </div>
+
+    <div>
+        @Html.CheckBoxFor(m => m.Agree)
+        I Agree
+    </div>
+
+    <button type="submit">Register</button>
+}
+
+@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}
